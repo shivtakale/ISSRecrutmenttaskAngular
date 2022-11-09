@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-fair-details',
@@ -6,10 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./fair-details.component.scss']
 })
 export class FairDetailsComponent implements OnInit {
+@Input('detailsArray') selectedFairDetails !: any
+// selectedFairDetails: any;
 
   constructor() { }
 
   ngOnInit(): void {
+    // this.selectedFairDetails= this.detailsArray[0]
+  }
+  ngOnChanges(changes: SimpleChanges){
+    console.log(this.selectedFairDetails);
+
   }
 
 }

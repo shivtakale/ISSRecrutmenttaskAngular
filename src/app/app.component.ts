@@ -9,7 +9,6 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit{
 
   title = 'ISSRecrutment';
-selectedFairDetails: any;
 
 public DataArray: any[]= [
     {
@@ -137,7 +136,17 @@ public DataArray: any[]= [
         "schoolDescription": "<p class=\"xparagraph\"><span class=\"xnormaltextrun\">We are excited to welcome you to Washington DC as we&#10;return to our annual Fair following the AAIE conference. To help launch or&#10;further your international education career, join us to meet international school&#10;leaders, follow school presentations and workshops and receive support on&#10;making recruitment easier for you. This conference draws hundreds of candidates&#10;and recruiters alike, from all over the globe. Come join us and let Washington&#10;DC work its magic for you!</span><span class=\"xeop\">&#160;</span></p><p class=\"paragraph\"><span class=\"normaltextrun\"><span><u><br></u></span></span></p><p class=\"paragraph\"><span class=\"normaltextrun\"><span><u>WASHINGTON DC FAIR SCHEDULE</u></span></span><span class=\"eop\">&#160;</span><span></span></p><p class=\"paragraph\"><span class=\"eop\">&#160;</span><span></span></p><p class=\"paragraph\"><span class=\"normaltextrun\"><span>February 9th</span></span><span></span></p><p class=\"paragraph\"><span class=\"normaltextrun\">8AM-6PM: ISS Event Check-in&#8239;</span><span class=\"eop\">&#160;</span><span></span></p><p class=\"paragraph\"><span class=\"normaltextrun\">1-5PM: School &amp; Candidate Pre-conference Workshops&#8239;</span><span></span></p><p class=\"paragraph\"><span class=\"normaltextrun\">5:30-7:30PM: School Recruiter Welcome Reception&#8239;&#8239;</span><span class=\"eop\">&#160;</span><span></span></p><p class=\"paragraph\"><span class=\"eop\">&#160;</span><span></span></p><p class=\"paragraph\"><span class=\"normaltextrun\"><span>February 10<span>th</span></span></span><span></span></p><p class=\"paragraph\"><span class=\"normaltextrun\">8AM-6:30PM: ISS Event Check-in</span><span class=\"eop\">&#160;</span><span></span></p><p class=\"paragraph\"><span class=\"normaltextrun\">9-10AM: Candidate Welcome Session #1</span><span class=\"eop\">&#160;</span><span></span></p><p class=\"paragraph\"><span class=\"normaltextrun\">10:30AM-4:30PM: School Presentations</span><span class=\"eop\">&#160;</span><span></span></p><p class=\"paragraph\"><span class=\"normaltextrun\">5-7PM: Interview Sign-ups</span><span class=\"eop\">&#160;</span><span></span></p><p class=\"paragraph\"><span>&#160;</span></p><p class=\"paragraph\"><span class=\"normaltextrun\"><span>February 11<span>th</span></span></span><span class=\"normaltextrun\"><span>&#8239;</span></span><span class=\"eop\"><span>&#160;</span></span><span></span></p><p class=\"paragraph\"><span class=\"normaltextrun\">8AM-6PM: ISS School and Candidate Office Open</span><span class=\"eop\">&#160;</span><span></span></p><p class=\"paragraph\"><span class=\"normaltextrun\">8AM-5PM: Interview Day #1&#8239;&#8239;</span><span class=\"eop\">&#160;</span><span></span></p><p class=\"paragraph\"><span class=\"normaltextrun\">9-10AM: Candidate Welcome Session #2&#8239;</span><span class=\"eop\">&#160;</span><span></span></p><p class=\"paragraph\"><span class=\"normaltextrun\">5-7PM: School &amp; Candidate Networking Reception&#8239;&#8239;</span><span class=\"eop\">&#160;</span><span></span></p><p class=\"paragraph\"><span class=\"eop\">&#160;</span><span></span></p><p class=\"paragraph\"><span class=\"normaltextrun\"><span>February 12<span>th</span> </span></span><span class=\"eop\">&#160;</span><span></span></p><p class=\"paragraph\"><span class=\"normaltextrun\">8AM-12PM: ISS School and Candidate Office Open&#8239;</span><span class=\"eop\">&#160;</span></p><p class=\"xparagraph\"><span class=\"xeop\"></span></p><p class=\"paragraph\"><span>8AM-12PM: </span><span class=\"normaltextrun\">Interview Day #2&#8239;</span><span class=\"eop\">&#160;</span></p>"
     }
 ]
+selectedFairDetails: any= this.DataArray[0];
+
 ngOnInit(): void {
-  this.selectedFairDetails= this.DataArray[0]
+  // this.selectedFairDetails= this.DataArray[0]
+}
+
+getIdFromFairList(event:any){
+  this.DataArray.filter(ele=> {
+    if(ele.fairId===event){
+      this.selectedFairDetails=ele
+    }
+  })
 }
 }

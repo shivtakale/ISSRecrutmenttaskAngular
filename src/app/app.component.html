@@ -1,88 +1,51 @@
+<div class="fair-container">
+  <div class="row header">
+    <div class="col-sm-12">
+      <div class="banner">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="row">
+                <div class="col-sm-12">
+                  <label class="banner-title">International Job Fairs</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="description">
+                    <p>
+                      Join ISS at our upcoming Job Fairs. Our fairs are optimized to fill vacancies in international schools, with negotiations and contracts often offered on the spot.
+                    </p>
+                    <p>
+                      Register today to save your spot! Network with schools and candidates and if you're new to international education, come see how a recruitment fair can help you land your dream job!
+                    </p>
+                    <p>
+                      If you can't attend any of our traditional fairs, log on for our exclusive iFairs - where we facilitate online meetings and interviews between candidates and recruiters. This unique service has dramatically accelerated the hiring process, proving to be one of our most successful initiatives.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 headImg">
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <section class="fairs py-5">
   <div class="row">
     <div class="col-md-4">
-      <div class="container">
-        <h5 class="text-center mb-2">Upcoming Fairs and iFairs</h5>
-        <div class="card summary mb-3 ml-5" *ngFor="let obj of DataArray">
-          <div class="row">
-            <div class="image col-md-3 p-3 w-100">
-              <img src="../assets/images/newheaderlogo.png" alt="logo">
-            </div>
-            <div class="col-md-8">
-              <div class="">
-                <p><strong>{{obj.fairName}}</strong></p>
-              </div>
-              <div class="card-body">
-                <p> <i class="fa-regular fa-calendar-days"></i> {{obj.startDate
-                  |date }} -
-                  {{obj.endDate|date}}</p>
-                <p><a href="Javascript:;">Add to Calendar</a></p>
-                <p> <i class="fa-solid fa-location-dot"></i> {{obj.type}}</p>
-                <p> <i class="fa-solid fa-school"></i>
-                  {{obj.numberOfSchoolsRegistered}} Registered</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
+      <h5 class="text-center mb-4">Upcoming Fairs and iFairs</h5>
+      <app-fair-list [fairListArray]="DataArray"
+        (EmitIdApp)="getIdFromFairList($event)"></app-fair-list>
     </div>
-    <div class="col-md-7 offset-md-1">
-      <div class="card-heroImg">
-        <!-- <h3 class="Heading1">{{selectedFairDetails | json}}</h3> -->
-        <img [src]="selectedFairDetails.bannerUrl" alt="banner">
-        <div class="bannerHeading">
-          <h2 class="mb-3">{{selectedFairDetails.fairName}}</h2>
-          <h4 class="mb-3"><span>{{selectedFairDetails.startDate | date}} -
-              {{selectedFairDetails.endDate | date}}</span></h4>
-          <button class="btn btn-outline-info text-info bg-white btn-lg p-2">Upgrade
-            to Register For Fair</button>
-        </div>
-      </div>
-      <div class="cardDetail my-4">
-        <div class="row">
-          <div class="col-md-4">
-            <div class="card Calendar-card">
-              <div class="card-body">
-                <p class="text-title"><i class="fa-regular fa-calendar-days"></i>
-                  Date</p>
-                <p>{{selectedFairDetails.startDate | date}}</p>
-                <p>{{selectedFairDetails.endDate | date}}</p>
-                <p>{{selectedFairDetails.fairStartTime}} -
-                  {{selectedFairDetails.fairEndTime}}</p>
-                <p class="mb-3">{{selectedFairDetails.timezoneId}}</p>
-                <p class="mb-3"><a href="javascript:;">Add to Calendar</a></p>
-                <p>Last Registration Date</p>
-                <p>{{selectedFairDetails.endDate | date}}</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card Calendar-card loca">
-              <div class="card-body">
-                <p class="text-title mb-5"><i class=" mr-2 fa-solid
-                    fa-location-dot"></i>Location</p>
-                <img class="pl-5 " src="../assets/images/Lock.svg" alt="lock">
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-      <div class="row">
-        <h5 class="mb-4">Description</h5>
-        <p class="mb-4" [innerHTML]="selectedFairDetails.candidateDescription"></p>
-      </div>
-      <div class="row">
-        <div class="col-md-2">
-          <a href="javascript:;"><img src="../assets/images/PDF.svg" alt="pdf"></a>
-        </div>
-        <div class="col-md-4 pdf">
-          <p><a href="javascript:;">OCT 7 2022</a></p>
-          <p><a href="javascript:;">2022 iFairs® Agenda.pdf</a></p>
-        </div>
-
-      </div>
+    <div class="col-md-7">
+      <app-fair-details [detailsArray]="selectedFairDetails"></app-fair-details>
     </div>
   </div>
 </section>

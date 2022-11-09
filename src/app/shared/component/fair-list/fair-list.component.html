@@ -1,1 +1,29 @@
-<app-faircard *ngFor="let fairObj of fiarArray" [fairObj] = 'fairObj'></app-faircard>
+<!-- <app-faircard *ngFor="let fairObj of fiarArray" [fairObj] = 'fairObj'></app-faircard> -->
+
+<!-- <div class="col-md-4">
+  <div class="container">
+    <div class="card summary mb-3 ml-5" *ngFor="let obj of fairListArray">
+      <div class="row">
+        <div class="image col-md-3 p-3">
+          <img src="../assets/images/newheaderlogo.png" alt="logo">
+        </div>
+        <div class="col-md-8">
+          <div class="">
+            <p><strong>{{obj.fairName}}</strong></p>
+          </div>
+          <div class="card-body">
+            <p> <i class="fa-regular fa-calendar-days"></i> {{obj.startDate
+              |date }} -
+              {{obj.endDate|date}}</p>
+            <p><a href="Javascript:;">Add to Calendar</a></p>
+            <p> <i class="fa-solid fa-location-dot"></i> {{obj.type}}</p>
+            <p> <i class="fa-solid fa-school"></i>
+              {{obj.numberOfSchoolsRegistered}} Registered</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div> -->
+<app-faircard *ngFor="let obj of fairListArray" [obj]="obj" (emitter)="getemitterId($event)"></app-faircard>

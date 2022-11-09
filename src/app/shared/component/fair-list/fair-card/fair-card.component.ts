@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { outputAst } from '@angular/compiler';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-faircard',
@@ -6,10 +7,16 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./fair-card.component.scss']
 })
 export class FairCardComponent implements OnInit {
-  @Input() fairObj!: string;
+  @Input() obj!:any;
+  @Output() emitter:EventEmitter<string>= new EventEmitter<string>()
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onclick(){
+    this.emitter.emit(this.obj.fairId)
+    console.log(this.obj.fairId);
   }
 
 }

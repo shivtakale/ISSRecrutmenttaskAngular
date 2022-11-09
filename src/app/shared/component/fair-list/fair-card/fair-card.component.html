@@ -1,1 +1,23 @@
-<!-- <p>fair-card works!</p> -->
+
+<div class="col-md-4">
+  <div class="container">
+    <div class="card summary mb-3 ml-5" (click)="onclick()">
+      <div class="row">
+        <div class="image col-md-3 p-3">
+          <img src="../assets/images/newheaderlogo.png" alt="logo">
+        </div>
+        <div class="col-md-8 card-body">
+          <p><strong>{{obj.fairName}}</strong></p>
+          <p> <i class="fa-regular fa-calendar-days"></i> {{obj.startDate
+            |date }} -
+            {{obj.endDate|date}}</p>
+          <p><a href="Javascript:;">Add to Calendar</a></p>
+          <p> <i class="fa-solid fa-location-dot"></i> {{obj.type}}</p>
+          <p> <i class="fa-solid fa-school"></i>
+            {{obj.numberOfSchoolsRegistered}} Registered</p>
+         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
